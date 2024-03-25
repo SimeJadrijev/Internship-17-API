@@ -7,9 +7,10 @@ import { UsersModule } from './users/users.module';
 import { CartItemsModule } from './cart-items/cart-items.module';
 import { WishlistItemsModule } from './wishlist-items/wishlist-items.module';
 import { CategoriesModule } from './categories/categories.module';
+import { OrderItemsModule } from './order-items/order-items.module';
 
 @Module({
-  imports: [PrismaModule, ProductsModule, UsersModule, CartItemsModule, WishlistItemsModule, CategoriesModule],
+  imports: [PrismaModule, ProductsModule, UsersModule, CartItemsModule, WishlistItemsModule, CategoriesModule, OrderItemsModule],
   controllers: [AppController],
   providers: [AppService],
 })
