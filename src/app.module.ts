@@ -8,9 +8,10 @@ import { CartItemsModule } from './cart-items/cart-items.module';
 import { WishlistItemsModule } from './wishlist-items/wishlist-items.module';
 import { CategoriesModule } from './categories/categories.module';
 import { OrderItemsModule } from './order-items/order-items.module';
+import { OrdersModule } from './orders/orders.module';
 
 @Module({
-  imports: [PrismaModule, ProductsModule, UsersModule, CartItemsModule, WishlistItemsModule, CategoriesModule, OrderItemsModule],
+  imports: [PrismaModule, ProductsModule, UsersModule, CartItemsModule, WishlistItemsModule, CategoriesModule, OrderItemsModule, OrdersModule],
   controllers: [AppController],
   providers: [AppService],
 })
