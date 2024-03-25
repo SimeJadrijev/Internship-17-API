@@ -16,7 +16,7 @@ export class ProductsService {
   }
 
   findOne(id: number) {
-    return this.prisma.product.findFirst({ where: { id } });
+    return this.prisma.product.findUnique({ where: { id } });
   }
 
   update(id: number, updateProductDto: UpdateProductDto) {
