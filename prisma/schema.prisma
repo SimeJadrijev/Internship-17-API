@@ -14,6 +14,8 @@ model Product {
   image         String?        @default("https://st3.depositphotos.com/23594922/31822/v/450/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg")
   price         Float
   available     Int
+  category      Category       @relation(fields: [categoryId], references: [id])
+  categoryId    Int
   cartItems     CartItem[]
   wishlistItems WishlistItem[]
   orderItems    OrderItem[]
@@ -32,6 +34,14 @@ model User {
   orders        Order[]
   createdAt     DateTime       @default(now())
   updatedAt     DateTime       @updatedAt
+}
+
+model Category {
+  id        Int       @id @default(autoincrement())
+  name      String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  products  Product[]
 }
 
 model CartItem {
