@@ -18,6 +18,12 @@ export class OrdersService {
     return this.prisma.order.findUnique({ where: { id } });
   }
 
+  findBySearch(searchedValue: string) {
+    return this.prisma.product.findMany({
+      where: { title: { contains: searchedValue, mode: 'insensitive' } },
+    });
+  }
+
   update(id: number, updateOrderDto: UpdateOrderDto) {
     return this.prisma.order.update({ where: { id }, data: updateOrderDto });
   }

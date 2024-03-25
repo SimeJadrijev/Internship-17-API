@@ -6,12 +6,14 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { OrdersService } from './orders.service';
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderDto } from './dto/update-order.dto';
 import { ApiCreatedResponse, ApiTags } from '@nestjs/swagger';
 import { OrderEntity } from './entities/order.entity';
+import { query } from 'express';
 
 @Controller('orders')
 @ApiTags('Orders')
@@ -34,6 +36,12 @@ export class OrdersController {
   @ApiCreatedResponse({ type: OrderEntity })
   findOne(@Param('id') id: string) {
     return this.ordersService.findOne(+id);
+  }
+
+  @Get('search')
+  @ApiCreatedResponse({ type: OrderEntity, isArray: true })
+  findBySearch(@Query('search') searchedValue: string) {
+    return this.ordersService.findBySearch(searchedValue);
   }
 
   @Patch(':id')
