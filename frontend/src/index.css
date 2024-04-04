@@ -1,0 +1,15 @@
+@font-face {
+    font-family: "Fuse";
+    src: url(./assets/fonts/FuseV.2Display-Book.woff2);
+}
+@font-face {
+    font-family: "Fuse-text";
+    src: url(./assets/fonts/FuseV.2Text-Book.woff2);
+}
+
+#root{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
