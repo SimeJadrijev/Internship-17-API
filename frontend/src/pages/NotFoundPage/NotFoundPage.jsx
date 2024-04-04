@@ -1,13 +1,9 @@
+import classes from "./index.module.css";
+
 const NotFoundPage = () => {
-  const style = {
-    position: "absolute",
-    top: "50%",
-    fontFamily: "Fuse",
-    textTransform: "uppercase",
-  };
   return (
     <>
-      <h1 style={style}>404 page not found</h1>
+      <h1 className={classes["not-found-page"]}>404 page not found</h1>
     </>
   );
 };

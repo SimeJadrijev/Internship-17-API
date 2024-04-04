@@ -1,7 +1,6 @@
-.not-found-page{
+.not-found-page {
     position: absolute;
     top: 50%;
-    left: 50%;
     font-family: "Fuse";
     text-transform: uppercase;
 }
