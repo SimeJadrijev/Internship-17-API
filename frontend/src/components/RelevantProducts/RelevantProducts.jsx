@@ -1,6 +1,6 @@
-import classes from "./../styles/single-product.module.css";
+import classes from "./index.module.css";
 import { useEffect, useState } from "react";
-import ProductCardsContainer from "./ProductCardsContainer";
+import ProductCardsContainer from "../ProductCardsContainer/ProductCardsContainer";
 
 const RelevantProducts = () => {
   const [products, setProducts] = useState([]);

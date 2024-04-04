@@ -1,4 +1,4 @@
-import classes from "./../styles/product-card.module.css";
+import classes from "./index.module.css";
 import { Link } from "react-router-dom";
 const ProductCard = ({ product }) => {
   const path = `/product/${product.id}`;

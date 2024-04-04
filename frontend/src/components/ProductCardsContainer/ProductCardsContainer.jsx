@@ -1,6 +1,6 @@
 import React from "react";
-import classes from "./../styles/product-card.module.css";
-import ProductCard from "./ProductCard";
+import classes from "./index.module.css";
+import ProductCard from "../ProductCard/ProductCard";
 
 const ProductCardsContainer = ({ products }) => {
   return (

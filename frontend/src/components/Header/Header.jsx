@@ -1,4 +1,4 @@
-import classes from "./../styles/header.module.css";
+import classes from "./index.module.css";
 import { Link } from "react-router-dom";
 
 const Header = ({ onSearchChange, handleClick }) => {

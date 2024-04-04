@@ -1,13 +1,8 @@
-import "./App.css";
-import Products from "./pages/Products";
-import ProductCard from "./components/ProductCard";
-import SingleProduct from "./components/SingleProduct";
 import React, { useState, useEffect } from "react";
-import ProductCardsContainer from "./components/ProductCardsContainer";
+import Products from "./pages/Products/Products";
 import { Routes, Route } from "react-router-dom";
-import Product from "./pages/Product";
+import Product from "./pages/Product/Product";
 import NotFoundPage from "./pages/NotFoundPage";
-import RelevantProducts from "./components/RelevantProducts";
 
 function App() {
   const [products, setProducts] = useState(null);

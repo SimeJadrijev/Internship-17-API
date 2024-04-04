@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Header from "../components/Header";
-import ProductCardsContainer from "../components/ProductCardsContainer";
+import Header from "../../components/Header";
+import ProductCardsContainer from "../../components/ProductCardsContainer/ProductCardsContainer";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const Products = ({ products }) => {

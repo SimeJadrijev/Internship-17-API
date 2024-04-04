@@ -1,4 +1,4 @@
-import classes from "./../styles/single-product.module.css";
+import classes from "./index.module.css";
 
 const SingleProduct = ({ product }) => {
   return (

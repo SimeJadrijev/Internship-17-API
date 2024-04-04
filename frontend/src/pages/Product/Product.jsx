@@ -1,10 +1,9 @@
 import { useParams } from "react-router-dom";
-import SingleProduct from "../components/SingleProduct";
+import SingleProduct from "../../components/SingleProduct/SingleProduct";
 import { useEffect, useState } from "react";
-import Header from "../components/Header";
-import { assertNewExpression } from "@babel/types";
+import Header from "../../components/Header";
 import { useNavigate } from "react-router-dom";
-import RelevantProducts from "../components/RelevantProducts";
+import RelevantProducts from "../../components/RelevantProducts/RelevantProducts";
 
 const Product = () => {
   const { id } = useParams();
