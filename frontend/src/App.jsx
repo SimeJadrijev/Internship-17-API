@@ -8,17 +8,15 @@ function App() {
   const [products, setProducts] = useState(null);
 
   useEffect(() => {
-    const FetchProducts = async () => {
+    (async () => {
       try {
         const response = await fetch("https://fakestoreapi.com/products");
         const data = await response.json();
         setProducts(data);
       } catch (error) {
-        console.error("Greška:", error);
+        console.error("Greška: ", error);
       }
-    };
-
-    FetchProducts();
+    })();
   }, []);
 
   return (
