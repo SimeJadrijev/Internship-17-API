@@ -6,12 +6,15 @@ import {
   Patch,
   Param,
   Delete,
+  UseGuards,
+  Req,
 } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { ProductEntity } from './entities/product.entity';
+import { UsersAuthGuard } from 'src/users/users-auth-guard';
 
 @Controller('products')
 @ApiTags('Products')
@@ -24,9 +27,12 @@ export class ProductsController {
     return this.productsService.create(createProductDto);
   }
 
+  @UseGuards(UsersAuthGuard)
   @Get()
   @ApiOkResponse({ type: ProductEntity, isArray: true })
-  findAll() {
+  findAll(@Req() { user }) {
+    console.log('user from products controller', user);
+
     return this.productsService.findAll();
   }
 
