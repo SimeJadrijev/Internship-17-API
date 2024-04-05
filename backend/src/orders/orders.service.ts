@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Param, ParseIntPipe } from '@nestjs/common';
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderDto } from './dto/update-order.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
@@ -14,7 +14,7 @@ export class OrdersService {
     return this.prisma.order.findMany();
   }
 
-  findOne(id: number) {
+  findOne(@Param('id', ParseIntPipe) id: number) {
     return this.prisma.order.findUnique({ where: { id } });
   }
 
@@ -24,11 +24,14 @@ export class OrdersService {
     });
   }
 
-  update(id: number, updateOrderDto: UpdateOrderDto) {
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    updateOrderDto: UpdateOrderDto,
+  ) {
     return this.prisma.order.update({ where: { id }, data: updateOrderDto });
   }
 
-  remove(id: number) {
+  remove(@Param('id', ParseIntPipe) id: number) {
     return this.prisma.order.delete({ where: { id } });
   }
 }

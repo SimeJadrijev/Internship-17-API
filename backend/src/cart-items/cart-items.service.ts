@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Param, ParseIntPipe } from '@nestjs/common';
 import { CreateCartItemDto } from './dto/create-cart-item.dto';
 import { UpdateCartItemDto } from './dto/update-cart-item.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
@@ -14,18 +14,21 @@ export class CartItemsService {
     return this.prisma.cartItem.findMany();
   }
 
-  findOne(id: number) {
+  findOne(@Param(ParseIntPipe) id: number) {
     return this.prisma.cartItem.findUnique({ where: { id } });
   }
 
-  update(id: number, updateCartItemDto: UpdateCartItemDto) {
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    updateCartItemDto: UpdateCartItemDto,
+  ) {
     return this.prisma.cartItem.update({
       where: { id },
       data: updateCartItemDto,
     });
   }
 
-  remove(id: number) {
+  remove(@Param('id', ParseIntPipe) id: number) {
     return `This action removes a #${id} cartItem`;
   }
 }

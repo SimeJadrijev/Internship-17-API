@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Param, ParseIntPipe } from '@nestjs/common';
 import { CreateWishlistItemDto } from './dto/create-wishlist-item.dto';
 import { UpdateWishlistItemDto } from './dto/update-wishlist-item.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
@@ -14,18 +14,21 @@ export class WishlistItemsService {
     return this.prisma.wishlistItem.findMany();
   }
 
-  findOne(id: number) {
+  findOne(@Param('id', ParseIntPipe) id: number) {
     return this.prisma.wishlistItem.findUnique({ where: { id } });
   }
 
-  update(id: number, updateWishlistItemDto: UpdateWishlistItemDto) {
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    updateWishlistItemDto: UpdateWishlistItemDto,
+  ) {
     return this.prisma.wishlistItem.update({
       where: { id },
       data: updateWishlistItemDto,
     });
   }
 
-  remove(id: number) {
+  remove(@Param('id', ParseIntPipe) id: number) {
     return this.prisma.wishlistItem.delete({ where: { id } });
   }
 }
