@@ -6,18 +6,21 @@ import {
   Patch,
   Param,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
 import { CategoriesService } from './categories.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
 import { ApiCreatedResponse, ApiTags } from '@nestjs/swagger';
 import { CategoryEntity } from './entities/category.entity';
+import { AdminAuthGuard } from 'src/users/admins-auth.guard';
 
 @Controller('categories')
 @ApiTags('Categories')
 export class CategoriesController {
   constructor(private readonly categoriesService: CategoriesService) {}
 
+  @UseGuards(AdminAuthGuard)
   @Post()
   @ApiCreatedResponse({ type: CategoryEntity })
   create(@Body() createCategoryDto: CreateCategoryDto) {
@@ -36,6 +39,7 @@ export class CategoriesController {
     return this.categoriesService.findOne(+id);
   }
 
+  @UseGuards(AdminAuthGuard)
   @Patch(':id')
   @ApiCreatedResponse({ type: CategoryEntity })
   update(
@@ -45,6 +49,7 @@ export class CategoriesController {
     return this.categoriesService.update(+id, updateCategoryDto);
   }
 
+  @UseGuards(AdminAuthGuard)
   @Delete(':id')
   @ApiCreatedResponse({ type: CategoryEntity })
   remove(@Param('id') id: string) {
