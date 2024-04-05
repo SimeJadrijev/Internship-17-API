@@ -3,6 +3,8 @@ import Products from "./pages/Products/Products";
 import { Routes, Route } from "react-router-dom";
 import Product from "./pages/Product/Product";
 import NotFoundPage from "./pages/NotFoundPage";
+import LoginPage from "./pages/LoginPage";
+import RegistrationPage from "./pages/RegistrationPage";
 
 function App() {
   const [products, setProducts] = useState(null);
@@ -21,11 +23,12 @@ function App() {
 
   return (
     <>
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<Products products={products} />} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      </Routes> */}
+      <RegistrationPage />
     </>
   );
 }
