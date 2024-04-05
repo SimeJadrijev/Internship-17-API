@@ -1,4 +1,8 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  ForbiddenException,
+  Injectable,
+} from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
@@ -30,6 +34,29 @@ export class UsersService {
         password: hashedPassword,
       },
     });
+
+    const payload = {
+      id: user.id,
+      username: user.username,
+      role: 'user',
+    };
+
+    return { token: this.jwtService.sign(payload) };
+  }
+
+  async login(username: string, password: string) {
+    if (!username) throw new BadRequestException("Missing 'username' field");
+    if (!password) throw new BadRequestException("Missing 'password' field");
+
+    const user = await this.prisma.user.findUnique({
+      where: { username },
+    });
+
+    if (!user) throw new BadRequestException('User does not exist');
+
+    const isPasswordValid = await compare(password, user.password);
+
+    if (!isPasswordValid) throw new ForbiddenException('Invalid password');
 
     const payload = {
       id: user.id,
