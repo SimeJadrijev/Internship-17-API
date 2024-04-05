@@ -4,7 +4,7 @@ import classes from "./index.module.css";
 const AuthButtons = () => {
   return (
     <>
-      <Link className={classes["auth-button"]}>
+      <Link to="/login" className={classes["auth-button"]}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
@@ -18,7 +18,7 @@ const AuthButtons = () => {
         <h4>Login</h4>
       </Link>
 
-      <Link className={classes["auth-button"]}>
+      <Link to="/registration" className={classes["auth-button"]}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"

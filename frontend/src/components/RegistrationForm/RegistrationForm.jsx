@@ -35,7 +35,7 @@ const RegistrationForm = () => {
           <button className={classes["registration-btn"]}>Register</button>
         </form>
         <h4 className={classes["old-member"]}>
-          Already have an account? <Link>Login here!</Link>
+          Already have an account? <Link to="/login">Login here!</Link>
         </h4>
       </div>
     </>

@@ -23,12 +23,13 @@ function App() {
 
   return (
     <>
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<Products products={products} />} />
         <Route path="/product/:id" element={<Product />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/registration" element={<RegistrationPage />} />
         <Route path="*" element={<NotFoundPage />} />
-      </Routes> */}
-      <RegistrationPage />
+      </Routes>
     </>
   );
 }

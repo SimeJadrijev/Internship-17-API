@@ -26,7 +26,7 @@ const LoginForm = () => {
           <button className={classes["login-btn"]}>Login</button>
         </form>
         <h4 className={classes["new-member"]}>
-          New member? <Link>Register here!</Link>
+          New member? <Link to="/registration">Register here!</Link>
         </h4>
       </div>
     </>
