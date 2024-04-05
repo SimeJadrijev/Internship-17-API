@@ -15,6 +15,7 @@ import { UpdateProductDto } from './dto/update-product.dto';
 import { ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { ProductEntity } from './entities/product.entity';
 import { UsersAuthGuard } from 'src/users/users-auth-guard';
+import { AdminAuthGuard } from 'src/users/admins-auth.guard';
 
 @Controller('products')
 @ApiTags('Products')
@@ -22,9 +23,12 @@ import { UsersAuthGuard } from 'src/users/users-auth-guard';
 export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
+  @UseGuards(AdminAuthGuard)
   @Post()
-  create(@Body() createProductDto: CreateProductDto) {
-    return this.productsService.create(createProductDto);
+  create(@Req() { user }, @Body() createProductDto: CreateProductDto) {
+    console.log('this admin called create', user);
+
+    return this.productsService.create(user.id, createProductDto);
   }
 
   @UseGuards(UsersAuthGuard)

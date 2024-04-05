@@ -7,8 +7,9 @@ import { PrismaClient } from '@prisma/client';
 @Injectable()
 export class ProductsService {
   constructor(private prisma: PrismaService) {}
-  create(createProductDto: CreateProductDto) {
-    return this.prisma.product.create({ data: createProductDto });
+
+  create(id: number, createProductDto: CreateProductDto) {
+    return this.prisma.product.create({ data: { ...createProductDto, id } });
   }
 
   findAll() {
