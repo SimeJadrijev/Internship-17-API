@@ -1,0 +1,86 @@
+.login-form{
+    font-family: "Fuse";
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    margin-top: 50px;
+}
+.login-form h2{
+    margin: 0;
+}
+.login-form h3{
+    font-size: 16px;
+    margin: 20px 0;
+    font-weight: 100;
+}
+
+.login-form form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 270px;
+}
+
+.login-form form div{
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form form div label{
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.login-form form div input{
+    height: 25px;
+    border: none;
+    border-radius: 5px;
+    outline: 1px solid rgba(0, 0, 0, 0.504);
+    opacity: 0.8;
+    margin: 5px 0;
+    font-family: "Fuse";
+    font-weight: 600;
+    padding: 5px;
+}
+.login-form form div input:focus{
+    outline: 2px solid rgb(253, 205, 0);
+}
+
+.login-btn{
+    padding: 10px;
+    border-radius: 3px;
+    border: none;
+    background-color: rgb(253, 205, 0);
+    font-family: "Fuse";
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 20px;
+    cursor: pointer;
+    /* transition: background-color ease 0.5s;
+    transition: color ease 0.3s; */
+    margin-bottom: 0;
+    
+}
+.login-btn:hover{
+    background-color: rgb(0, 0, 0);
+    color: rgb(253, 205, 0);
+}
+
+.new-member{
+    margin: 15px 0;
+    font-size: 15px;
+}
+.new-member a{
+    text-decoration: none;
+    color: black;
+    text-decoration: underline;
+    padding: 5px;
+    border-radius: 3px;
+}
+.new-member a:hover{
+    background-color: rgb(253, 205, 0);
+    
+}
