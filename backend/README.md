@@ -22,9 +22,15 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+# Nest - Webstore API
+
+17th homework for DUMP Internship
+
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+The goal of this project was to build an API which will provide data for eventual integration with the *React Webstore project*.
+
+This project was built in **Nest** framework.
 
 ## Installation
 
