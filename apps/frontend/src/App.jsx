@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     (async () => {
       try {
-        const response = await fetch("https://fakestoreapi.com/products");
+        const response = await fetch("http://localhost:3000/api/products");
         const data = await response.json();
         setProducts(data);
       } catch (error) {
